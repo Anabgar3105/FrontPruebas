@@ -1,37 +1,33 @@
 <form color="primary">
-    <mat-card class="form-data">
-        <mat-card-header><mat-card-title>INICIAR SESION</mat-card-title></mat-card-header>
-        <mat-card-content>
-            <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>User name</mat-label>
-                    <input matInput type="text" name="name" /> <!-- [(llamamos a typeScript)]="propiedas" -->
-                    <!-- #donde queremos añadir=""-->
-                </mat-form-field>
-            </div>
-            <!-- <div>
-            <mat-form-field appearance="fill">
-                <mat-label>Password</mat-label>
-                <input matInput type="password" name="pass" /> [(llamamos a typeScript)]="propiedas" -->
-            <!-- #donde queremos añadir=""
-            </mat-form-field>
-        </div> -->
-            <div class="example-container">
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                </mat-form-field>
-            </div>
-            <div>
-                <button mat-raised-button color="primary"> <!-- (click)="metodo()"-->
-                    Login
-                    <mat-icon>login</mat-icon>
-                </button>
-            </div>
-        </mat-card-content>
-    </mat-card>
+  <mat-card class="form-data">
+    <mat-card-header>
+      <mat-card-title>INICIAR SESION</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <!-- USERNAME -->
+      <mat-form-field appearance="fill">
+        <mat-label>User name</mat-label>
+        <input matInput type="text" name="user" [(ngModel)]="user" />
+      </mat-form-field>
+
+      <!-- PASSWORD -->
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password" />
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <!-- BOTÓN LOGIN -->
+      <button mat-raised-button color="primary" (click)="login(user, password)">
+        Login
+        <mat-icon>login</mat-icon>
+      </button>
+
+    </mat-card-content>
+  </mat-card>
 </form>
