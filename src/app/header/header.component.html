@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space"></span>
+  <button class="menuhome" mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
+    (mouseover)="menuTrigger.openMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <span (mouseleave)="menuTrigger.closeMenu()">
+      <button mat-menu-item [routerLink]="['/main']">
+        <mat-icon>home</mat-icon>
+        <span>Inicio</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/main/login']">
+        <mat-icon>login</mat-icon>
+        <span>Login</span>
+      </button>
+    </span>
+  </mat-menu>
+  <span class="fill-remaining-space">Header</span>
+</mat-toolbar>
